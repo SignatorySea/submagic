@@ -1,0 +1,73 @@
+
+<div class="subschool-settings-content">
+
+    <header class="settings-header">
+        <h2>Configured Subschools</h2>
+
+        <p>
+            Manage the subschools available throughout your world.
+        </p>
+    </header>
+
+    <section class="subschool-list">
+
+        {{#each subschools as |school|}}
+
+            <div class="subschool-entry">
+
+                <div class="subschool-info">
+
+                    <strong>{{school.label}}</strong>
+
+                    <small>ID: {{school.id}}</small>
+
+                </div>
+
+                <div class="subschool-controls">
+
+                    <button
+                        type="button"
+                        data-action="editSubschool"
+                        data-id="{{school.id}}"
+                        data-tooltip="Edit Subschool"
+                    >
+                        <i class="fa-solid fa-pencil"></i>
+                    </button>
+
+                    <button
+                        type="button"
+                        data-action="deleteSubschool"
+                        data-id="{{school.id}}"
+                        data-tooltip="Delete Subschool"
+                    >
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        {{else}}
+
+            <p class="empty">
+                No subschools have been configured.
+            </p>
+
+        {{/each}}
+
+    </section>
+
+    <footer class="settings-footer">
+
+        <button
+            type="button"
+            data-action="addSubschool"
+            class="create-subschool"
+        >
+            <i class="fa-solid fa-plus"></i>
+            Add Subschool
+        </button>
+
+    </footer>
+
+</div>

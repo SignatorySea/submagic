@@ -1,0 +1,62 @@
+.subschool-settings .subschool-settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.subschool-settings .settings-header h2 {
+    margin-bottom: 0.25rem;
+}
+
+.subschool-settings .settings-header p {
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+.subschool-settings .subschool-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.subschool-settings .subschool-entry {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border-light-primary);
+    border-radius: 5px;
+}
+
+.subschool-settings .subschool-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.subschool-settings .subschool-info small {
+    color: var(--color-text-secondary);
+    font-size: 0.8rem;
+}
+
+.subschool-settings .subschool-controls {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.subschool-settings .subschool-controls button {
+    flex: 0 0 auto;
+    width: 2rem;
+    height: 2rem;
+}
+
+.subschool-settings .empty {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--color-text-secondary);
+}
+
+.subschool-settings .create-subschool {
+    width: 100%;
+}

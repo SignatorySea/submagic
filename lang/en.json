@@ -1,0 +1,15 @@
+{
+    "SUBMAGIC": {
+        "ADVANCEMENT": {
+            "FIELDS": {
+                "subSchool": {
+                    "label": "Spell Subschools",
+                    "hint": "Only allow spells from the select subschools."
+                }
+            },
+            "Warning": {
+                "SpellSubSchool": "The spell must belong to one of these subschools: {subschools}."
+            }
+        }
+    }
+}
