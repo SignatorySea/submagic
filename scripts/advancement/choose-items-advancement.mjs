@@ -35,11 +35,11 @@ export function chooseAdvancement() {
     ItemChoiceConfigurationData.defineSchema = function() {
         const schema = originalDefineSchema.call(this);
 
-        schema.restriction.fields.subSchool = new foundry.data.fields.SetField(
+        schema.restriction.fields.subschool = new foundry.data.fields.SetField(
             new foundry.data.fields.StringField(),
             {
-                label: "SUBMAGIC.ADVANCEMENT.FIELDS.subSchool.label",
-                hint: "SUBMAGIC.ADVANCEMENT.FIELDS.subSchool.hint"
+                label: "SUBMAGIC.ADVANCEMENT.FIELDS.subschool.label",
+                hint: "SUBMAGIC.ADVANCEMENT.FIELDS.subschool.hint"
             }
         );
 
@@ -57,7 +57,7 @@ export function chooseAdvancement() {
     ItemChoiceConfigClass.prototype._prepareContext = async function(options) {
         const context = await originalPrepareContext.call(this, options);
 
-        context.subSchoolRestrictionOptions = getSubschoolList().map(
+        context.subschoolRestrictionOptions = getSubschoolList().map(
             ({ id, label }) => ({
                 value: id,
                 label
@@ -68,3 +68,26 @@ export function chooseAdvancement() {
     };
 }
 
+export function registerSubschoolBrowserFilter() {
+      const originalSelect = CompendiumBrowser.select;
+
+    CompendiumBrowser.select = async function(options = {}, ...args) {
+
+        const additional = options.filters?.locked?.additional;
+
+
+            // Retrieve the active advancement restriction.
+            const restriction = game.submagic?.activeRestriction;
+
+            if (restriction?.subschool?.size) {
+                additional.subschool = Object.fromEntries(
+                    Array.from(restriction.subSchool).map(subschool => [
+                        subschool,
+                        1
+                    ])
+                );
+            }
+
+        return originalSelect.call(this, options, ...args);
+    };
+}

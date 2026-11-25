@@ -2,7 +2,7 @@
     "SUBMAGIC": {
         "ADVANCEMENT": {
             "FIELDS": {
-                "subSchool": {
+                "subschool": {
                     "label": "Spell Subschools",
                     "hint": "Only allow spells from the select subschools."
                 }

@@ -12,7 +12,7 @@ export function compendiumBrowserFilters() {
     get() {
       const filters = original.call(this);
       filters.set("subschool", {
-        label: "Sub-School",
+        label: "Subschool",
         type: "set",
         config: {
           keyPath: "flags.submagic.subschool",
